@@ -1,0 +1,9 @@
+{% block 'body' %}
+    <div class="container-fluid">
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Are you sure, ou want to delete : {{ item.item_name }}</h2>
+            <button type="submit" class="btn btn-danger">Confirm</button>
+        </form>
+    </div>
+{% endblock %}

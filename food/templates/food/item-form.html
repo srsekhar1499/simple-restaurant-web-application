@@ -1,0 +1,38 @@
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+{% block body %}
+<div class="container">
+    <div class="row ">
+        <div class="col-md-4 offset-md-4 ">
+            <div class="card d-flex justify-content-center w-sm-100 w-md-50  align-middle mt-5">
+                <div class="card-header bg-primary text-white">
+                    <div class="card-title d-flex justify-content-center">
+                        <h6 class="mt-2 mb-1">Add Item details</h6>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form class="form" method="POST">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <div class="form-label">
+                                    <h5>{{ field.name | title }}</h5>
+                                </div>
+                                <div class="form-control">
+                                    {{ field }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="container-fluid w-100 d-flex justify-content-center mt-2">
+                            <button class="btn btn-success " type="submit">Save</button>&nbsp;&nbsp;
+                            <a href="{% url 'food:index' %}" class="btn btn-warning " >Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

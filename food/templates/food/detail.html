@@ -1,0 +1,22 @@
+{% extends 'food/base.html' %}
+<!DOCTYPE html>
+{% block body %}
+    <div class="container d-flex justify-content-center mt-3">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ object.item_image }}" height="400px" width="100%" class="card" />
+            </div>
+            <div class="col-md-6">
+                <h1>Item Name : {{ object.item_name }}</h1>
+                <h2>Description : {{ object.item_desc }}</h2>
+                <h3>$ {{ object.item_price }}</h3>
+                <div class="d-flex justify-content-center">
+                    <div class="btn-group">
+                        <a href="{% url 'food:update_item' object.id %}" class="btn btn-warning text-white m-1">Update</a>
+                        <a href="{% url 'food:delete_item' object.id %}" class="btn btn-danger text-white m-1">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
